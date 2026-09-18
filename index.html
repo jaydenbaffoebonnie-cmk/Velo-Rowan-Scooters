@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -38,7 +39,7 @@
       <header class="topbar">
         <a class="reference-logo" href="#top">VELO</a>
         <nav class="reference-nav" aria-label="Primary navigation"><button class="active" data-view="explore">Ride</button><button data-view="support">Help</button><button data-view="safety">Safety</button><button data-view="safety">Policies</button></nav>
-        <div class="account-actions"><button>Log in</button><button class="signup-button">Sign up</button></div>
+        <div class="account-actions"><button id="loginButton">Log in</button><button class="signup-button" id="signupButton">Sign up</button></div>
       </header>
 
       <section class="content-view active-view" data-panel="explore">
@@ -65,9 +66,23 @@
             <button class="primary-button ride-action" id="rideAction"><i data-lucide="lock-open"></i><span>Unlock scooter</span></button><p class="ride-note"><i data-lucide="scan-line"></i> Or scan the QR code on the handlebar</p>
           </aside>
         </div>
+        <section class="fleet-options" aria-labelledby="nearby-heading">
+          <div class="fleet-options-heading"><div><p class="eyebrow">NEARBY SCOOTERS</p><h2 id="nearby-heading">Choose your ride</h2></div><span class="availability-note"><span class="live-pulse"></span> 2 ready now</span></div>
+          <div class="scooter-options">
+            <button class="scooter-option selected" data-scooter="V-104"><span class="option-status">Available</span><span class="option-scooter"><i data-lucide="zap"></i></span><span class="option-copy"><strong>VELO V-104</strong><small>Student Center · 0.2 mi away</small></span><span class="option-battery"><strong>82%</strong><small>16.4 mi range</small><span class="battery-track"><span style="width:82%"></span></span></span><span class="option-cta">Select scooter <i data-lucide="arrow-right"></i></span></button>
+            <button class="scooter-option" data-scooter="V-118"><span class="option-status">Available</span><span class="option-scooter"><i data-lucide="zap"></i></span><span class="option-copy"><strong>VELO V-118</strong><small>Rowan Boulevard · 0.4 mi away</small></span><span class="option-battery"><strong>74%</strong><small>14.8 mi range</small><span class="battery-track"><span style="width:74%"></span></span></span><span class="option-cta">Select scooter <i data-lucide="arrow-right"></i></span></button>
+          </div>
+        </section>
         <section class="section-heading"><div><p class="eyebrow">YOUR VELO</p><h2>Keep moving</h2></div><button class="text-button">View all <i data-lucide="arrow-right"></i></button></section>
         <div class="quick-grid"><button class="quick-card" data-view="safety"><span class="quick-icon mint"><i data-lucide="book-open-check"></i></span><span><strong>Ride smart</strong><small>Safety, parking & tips</small></span><i data-lucide="arrow-up-right"></i></button><button class="quick-card" data-view="support"><span class="quick-icon peach"><i data-lucide="message-circle"></i></span><span><strong>Need a hand?</strong><small>We’re here 24 / 7</small></span><i data-lucide="arrow-up-right"></i></button><button class="quick-card"><span class="quick-icon yellow"><i data-lucide="star"></i></span><span><strong>Leave a review</strong><small>Tell us how it went</small></span><i data-lucide="arrow-up-right"></i></button></div>
       </section>
+
+<script>
+  window.VELO_SUPABASE_CONFIG = {
+    url: 'https://imcvnoxpvlamdadjefcx.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImltY3Zub3hwdmxhbWRhZGplZmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk3NTkzMzAsImV4cCI6MjEwNTMzNTMzMH0.kbrdWhF8gqOqP-LbAwzfk9JIbUjafk3k5OBCmw4eUDw'
+  };
+</script>
 
       <section class="content-view" data-panel="rides"><div class="page-header"><p class="eyebrow">ACTIVITY</p><h1>My rides</h1><p>Every trip, all in one place.</p></div><div class="ride-history"><div class="history-row"><span class="history-icon"><i data-lucide="route"></i></span><div><strong>Rowan Commons → North Gate</strong><small>Today, 9:42 AM · 12 min</small></div><b>$2.40</b></div><div class="history-row"><span class="history-icon"><i data-lucide="route"></i></span><div><strong>Wellness Center → Rowan Commons</strong><small>Yesterday, 4:16 PM · 8 min</small></div><b>$1.80</b></div></div></section>
       <section class="content-view" data-panel="saved"><div class="page-header"><p class="eyebrow">YOUR PLACES</p><h1>Saved spots</h1><p>Quick access to the places you visit most.</p></div><div class="empty-state"><i data-lucide="bookmark"></i><h3>Nothing saved yet</h3><p>Tap a place on the map to keep it close.</p></div></section>
@@ -76,6 +91,7 @@
     </main>
   </div>
   <div class="modal-backdrop" id="supportModal" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close"><i data-lucide="x"></i></button><span class="modal-icon"><i data-lucide="life-buoy"></i></span><p class="eyebrow">VELO SUPPORT</p><h2 id="modalTitle">We can help with that.</h2><p id="modalCopy">Tell us what happened and our support team will get you moving again.</p><textarea placeholder="Add a few details (optional)"></textarea><button class="primary-button" id="sendSupport">Send to support <i data-lucide="arrow-up-right"></i></button></div></div>
+  <div class="modal-backdrop" id="authModal" aria-hidden="true"><div class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="modal-close" id="authClose" aria-label="Close"><i data-lucide="x"></i></button><span class="modal-icon"><i data-lucide="user-round-plus"></i></span><p class="eyebrow" id="authEyebrow">JOIN VELO</p><h2 id="authTitle">Create your account.</h2><p id="authCopy">Use your email to reserve scooters, start rides, and keep your trip history together.</p><form id="authForm"><label id="nameField">Name<input id="authName" type="text" autocomplete="name" placeholder="Your name" /></label><label>Email<input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required /></label><label>Password<input id="authPassword" type="password" autocomplete="new-password" placeholder="At least 6 characters" minlength="6" required /></label><p class="auth-message" id="authMessage" role="status"></p><button class="primary-button" type="submit" id="authSubmit">Create account <i data-lucide="arrow-up-right"></i></button></form><button class="auth-switch" id="authSwitch">Already have an account? Log in</button></div></div>
   <script src="app.js"></script>
 </body>
 </html>
