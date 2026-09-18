@@ -15,6 +15,10 @@ document.querySelectorAll('[data-view]').forEach((item) => {
   item.addEventListener('click', () => setView(item.dataset.view));
 });
 
+document.querySelector('[data-scroll-map]')?.addEventListener('click', () => {
+  document.querySelector('#fleet-demo')?.scrollIntoView({ behavior: 'smooth' });
+});
+
 const rideAction = document.querySelector('#rideAction');
 let rideStarted = false;
 rideAction.addEventListener('click', () => {

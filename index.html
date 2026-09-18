@@ -36,12 +36,14 @@
 
     <main class="main-content" id="top">
       <header class="topbar">
-        <div class="mobile-brand"><span class="brand-mark"><i data-lucide="zap"></i></span><strong>velo</strong></div>
-        <div class="location-pill"><i data-lucide="map-pin"></i><span>Rowan Commons</span><i data-lucide="chevron-down"></i></div>
-        <div class="top-actions"><button class="icon-button" aria-label="Notifications"><i data-lucide="bell"></i><span class="notification-dot"></span></button><button class="avatar small" aria-label="Open profile">JD</button></div>
+        <a class="reference-logo" href="#top">VELO</a>
+        <nav class="reference-nav" aria-label="Primary navigation"><button class="active" data-view="explore">Ride</button><button data-view="support">Help</button><button data-view="safety">Safety</button><button data-view="safety">Policies</button></nav>
+        <div class="account-actions"><button>Log in</button><button class="signup-button">Sign up</button></div>
       </header>
 
       <section class="content-view active-view" data-panel="explore">
+        <section class="reference-hero"><div class="hero-copy"><p class="hero-kicker">CAMPUS RUNS ON VELO</p><h1>Find it. Scan<br>it.<br><span>Ride.</span></h1><p class="hero-description">Use the map to choose an available scooter, check its battery, scan the scooter QR code, unlock, and start your ride.</p><div class="hero-actions"><button class="hero-primary" data-scroll-map>Find a scooter</button><button class="hero-secondary" data-view="safety">View tutorial</button></div><p class="prototype-note">Working prototype: payments, live GPS, Bluetooth, and physical scooter locks require approved fleet hardware and backend services.</p></div><div class="hero-art" aria-label="Velo Rowan campus scooter illustration"><div class="hero-orbit"></div><div class="hero-campus"><span>ROWAN<br>UNIVERSITY</span><i data-lucide="building-2"></i></div><div class="hero-scooter"><i data-lucide="zap"></i><span>VELO</span></div><p>CAMPUS RUNS ON VELO</p></div></section>
+        <div class="fleet-heading" id="fleet-demo"><p class="eyebrow">LIVE FLEET DEMO</p><h2>Campus scooter map</h2><div class="fleet-legend"><span class="legend-key available"></span>Available <span class="legend-key reserved"></span>Reserved <span class="legend-key in-use"></span>In use <span class="legend-key charging"></span>Charging <span class="legend-key disabled"></span>Disabled</div></div>
         <div class="welcome-row"><div><p class="eyebrow">FRIDAY, SEPTEMBER 18</p><h1>Where are you headed,<br><em>Jordan?</em></h1></div><button class="outline-button"><i data-lucide="qr-code"></i><span>Scan a scooter</span></button></div>
         <div class="dashboard-grid">
           <article class="map-card">
