@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Velo shared scooters - a calmer way to move around Rowan." />
+  <title>Velo | Move your way</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top" aria-label="Velo home">
+        <span class="brand-mark"><i data-lucide="zap"></i></span>
+        <span>velo</span>
+      </a>
+      <div class="sidebar-label">Your ride</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="explore"><i data-lucide="compass"></i><span>Explore</span></button>
+        <button class="nav-item" data-view="rides"><i data-lucide="route"></i><span>My rides</span><span class="nav-count">2</span></button>
+        <button class="nav-item" data-view="saved"><i data-lucide="bookmark"></i><span>Saved</span></button>
+      </nav>
+      <div class="sidebar-label resources-label">Resources</div>
+      <nav class="main-nav" aria-label="Resource navigation">
+        <button class="nav-item" data-view="safety"><i data-lucide="shield-check"></i><span>Safety & how-to</span></button>
+        <button class="nav-item" data-view="support"><i data-lucide="life-buoy"></i><span>Support</span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="weather-mini"><i data-lucide="sun"></i><div><strong>72°</strong><span>Clear skies</span></div><small>Good riding</small></div>
+      <div class="user-chip"><div class="avatar">JD</div><div><strong>Jordan Davis</strong><span>jordan@email.com</span></div><button aria-label="Account menu"><i data-lucide="more-horizontal"></i></button></div>
+    </aside>
+
+    <main class="main-content" id="top">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-mark"><i data-lucide="zap"></i></span><strong>velo</strong></div>
+        <div class="location-pill"><i data-lucide="map-pin"></i><span>Rowan Commons</span><i data-lucide="chevron-down"></i></div>
+        <div class="top-actions"><button class="icon-button" aria-label="Notifications"><i data-lucide="bell"></i><span class="notification-dot"></span></button><button class="avatar small" aria-label="Open profile">JD</button></div>
+      </header>
+
+      <section class="content-view active-view" data-panel="explore">
+        <div class="welcome-row"><div><p class="eyebrow">FRIDAY, SEPTEMBER 18</p><h1>Where are you headed,<br><em>Jordan?</em></h1></div><button class="outline-button"><i data-lucide="qr-code"></i><span>Scan a scooter</span></button></div>
+        <div class="dashboard-grid">
+          <article class="map-card">
+            <div class="map-toolbar"><div class="map-status"><span class="live-pulse"></span> Live availability</div><button class="map-filter">Nearby <i data-lucide="sliders-horizontal"></i></button></div>
+            <div class="map-canvas" aria-label="Map showing nearby scooters">
+              <div class="map-grid-lines"></div><div class="road road-a"></div><div class="road road-b"></div><div class="road road-c"></div>
+              <span class="street street-one">CAMPUS WALK</span><span class="street street-two">ROWAN AVE</span><span class="street street-three">GARDEN ST</span>
+              <div class="map-water"></div><div class="map-park"><span>ROWAN<br>COMMONS</span></div>
+              <button class="map-pin scooter-pin pin-one active-pin" aria-label="Available scooter V-104"><i data-lucide="zap"></i></button><button class="map-pin scooter-pin pin-two" aria-label="Available scooter V-118"><i data-lucide="zap"></i></button><button class="map-pin scooter-pin pin-three" aria-label="Available scooter V-092"><i data-lucide="zap"></i></button><button class="map-pin scooter-pin pin-four" aria-label="Available scooter V-121"><i data-lucide="zap"></i></button>
+              <div class="user-location"><span></span></div><div class="map-zoom"><button aria-label="Zoom in">+</button><button aria-label="Zoom out">−</button></div>
+            </div>
+            <div class="map-footer"><div><span class="legend-dot available"></span>Available <strong>8</strong></div><div><span class="legend-dot reserved"></span>Reserved <strong>3</strong></div><div><span class="legend-dot charging"></span>Charging <strong>5</strong></div><div class="legend-disabled"><span class="legend-dot disabled"></span>Disabled <strong>2</strong></div><button class="text-button">Open full map <i data-lucide="arrow-up-right"></i></button></div>
+          </article>
+
+          <aside class="ride-card">
+            <div class="card-kicker"><span class="status-dot"></span> Ready to ride <span class="battery-label">82% <i data-lucide="battery-medium"></i></span></div>
+            <div class="scooter-illustration"><div class="scooter-glow"></div><svg viewBox="0 0 300 180" role="img" aria-label="Velo scooter illustration"><path d="M77 136h98l18-81h26l27 81h-13l-22-67h-8l-16 67H77Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><path d="M201 55V29h29M213 29h17M88 136a19 19 0 1 0 38 0M207 136a19 19 0 1 0 38 0" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M175 136 151 99h-46" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg><span class="scooter-id">V-104</span></div>
+            <div class="ride-info"><div><span>Distance</span><strong>0.2 mi</strong></div><div><span>Est. range</span><strong>16.4 mi</strong></div><div><span>Unlock</span><strong>Free</strong></div></div>
+            <button class="primary-button ride-action" id="rideAction"><i data-lucide="lock-open"></i><span>Unlock scooter</span></button><p class="ride-note"><i data-lucide="scan-line"></i> Or scan the QR code on the handlebar</p>
+          </aside>
+        </div>
+        <section class="section-heading"><div><p class="eyebrow">YOUR VELO</p><h2>Keep moving</h2></div><button class="text-button">View all <i data-lucide="arrow-right"></i></button></section>
+        <div class="quick-grid"><button class="quick-card" data-view="safety"><span class="quick-icon mint"><i data-lucide="book-open-check"></i></span><span><strong>Ride smart</strong><small>Safety, parking & tips</small></span><i data-lucide="arrow-up-right"></i></button><button class="quick-card" data-view="support"><span class="quick-icon peach"><i data-lucide="message-circle"></i></span><span><strong>Need a hand?</strong><small>We’re here 24 / 7</small></span><i data-lucide="arrow-up-right"></i></button><button class="quick-card"><span class="quick-icon yellow"><i data-lucide="star"></i></span><span><strong>Leave a review</strong><small>Tell us how it went</small></span><i data-lucide="arrow-up-right"></i></button></div>
+      </section>
+
+      <section class="content-view" data-panel="rides"><div class="page-header"><p class="eyebrow">ACTIVITY</p><h1>My rides</h1><p>Every trip, all in one place.</p></div><div class="ride-history"><div class="history-row"><span class="history-icon"><i data-lucide="route"></i></span><div><strong>Rowan Commons → North Gate</strong><small>Today, 9:42 AM · 12 min</small></div><b>$2.40</b></div><div class="history-row"><span class="history-icon"><i data-lucide="route"></i></span><div><strong>Wellness Center → Rowan Commons</strong><small>Yesterday, 4:16 PM · 8 min</small></div><b>$1.80</b></div></div></section>
+      <section class="content-view" data-panel="saved"><div class="page-header"><p class="eyebrow">YOUR PLACES</p><h1>Saved spots</h1><p>Quick access to the places you visit most.</p></div><div class="empty-state"><i data-lucide="bookmark"></i><h3>Nothing saved yet</h3><p>Tap a place on the map to keep it close.</p></div></section>
+      <section class="content-view" data-panel="safety"><div class="page-header"><p class="eyebrow">RIDE SMART</p><h1>Safety & how-to</h1><p>Simple rules for a better ride.</p></div><div class="resource-grid"><div class="resource-card feature"><span class="resource-number">01</span><i data-lucide="circle-play"></i><h3>Before you ride</h3><p>Helmet on, phone away, and a quick check of your brakes and tires.</p><button class="text-button">Watch tutorial <i data-lucide="arrow-right"></i></button></div><div class="resource-card"><i data-lucide="parking-circle"></i><h3>Park with care</h3><p>Leave sidewalks, doorways, ramps, and entrances clear.</p></div><div class="resource-card"><i data-lucide="cloud-sun"></i><h3>Weather policy</h3><p>Rides pause when conditions make travel unsafe. You will never be charged for a weather pause.</p></div><div class="resource-card"><i data-lucide="battery-charging"></i><h3>Charging & range</h3><p>Find charging points in the app. Never use a personal charger.</p></div><div class="resource-card"><i data-lucide="file-check-2"></i><h3>Coverage & damage</h3><p>Review insurance coverage, damage fees, and what to do after a crash.</p><button class="text-button">Read policy <i data-lucide="arrow-right"></i></button></div></div></section>
+      <section class="content-view" data-panel="support"><div class="page-header"><p class="eyebrow">HELP CENTER</p><h1>How can we help?</h1><p>Real people, around the clock.</p></div><div class="support-layout"><div class="support-list"><button class="support-item" data-open-support="unlock"><i data-lucide="lock-keyhole"></i><span><strong>Scooter won’t lock or unlock</strong><small>Get back on your way</small></span><i data-lucide="chevron-right"></i></button><button class="support-item" data-open-support="incident"><i data-lucide="siren"></i><span><strong>Report a safety issue</strong><small>Crash, damage, or hazard</small></span><i data-lucide="chevron-right"></i></button><button class="support-item" data-open-support="payment"><i data-lucide="receipt"></i><span><strong>Payment or refund request</strong><small>We’ll look into it</small></span><i data-lucide="chevron-right"></i></button><button class="support-item"><i data-lucide="phone-call"></i><span><strong>Talk to support</strong><small>Average reply: under 2 minutes</small></span><span class="online-dot"></span></button></div><div class="emergency-card"><span class="emergency-icon"><i data-lucide="phone"></i></span><p class="eyebrow">IN AN EMERGENCY</p><h3>Call 911 first.</h3><p>For crashes, injuries, fire, or immediate danger, get to safety and call emergency services.</p><button class="dark-button">Call 911 <i data-lucide="phone-call"></i></button></div></div></section>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="supportModal" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close"><i data-lucide="x"></i></button><span class="modal-icon"><i data-lucide="life-buoy"></i></span><p class="eyebrow">VELO SUPPORT</p><h2 id="modalTitle">We can help with that.</h2><p id="modalCopy">Tell us what happened and our support team will get you moving again.</p><textarea placeholder="Add a few details (optional)"></textarea><button class="primary-button" id="sendSupport">Send to support <i data-lucide="arrow-up-right"></i></button></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
