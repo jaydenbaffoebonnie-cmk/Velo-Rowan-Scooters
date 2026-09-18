@@ -66,7 +66,7 @@ authForm.addEventListener('submit', async (event) => {
   authSubmit.disabled = true;
   authSubmit.textContent = authMode === 'signup' ? 'Creating account...' : 'Logging in...';
   const result = authMode === 'signup'
-    ? await supabaseClient.auth.signUp({ email: authEmail.value, password: authPassword.value, options: { data: { full_name: authName.value } } })
+    ? await supabaseClient.auth.signUp({ email: authEmail.value, password: authPassword.value, options: { data: { full_name: authName.value }, emailRedirectTo: window.location.origin } })
     : await supabaseClient.auth.signInWithPassword({ email: authEmail.value, password: authPassword.value });
   authSubmit.disabled = false;
   authSubmit.innerHTML = authMode === 'signup' ? 'Create account <i data-lucide="arrow-up-right"></i>' : 'Log in <i data-lucide="arrow-right"></i>';

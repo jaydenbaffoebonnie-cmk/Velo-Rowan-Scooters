@@ -1,0 +1,25 @@
+{
+  "name": "velo-rowan-scooters",
+  "version": "1.0.0",
+  "description": "The signup and login forms use Supabase Auth when the project credentials are configured. Add this script before `app.js` in `index.html`:",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaydenbaffoebonnie-cmk/Velo-Rowan-Scooters.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/jaydenbaffoebonnie-cmk/Velo-Rowan-Scooters/issues"
+  },
+  "homepage": "https://github.com/jaydenbaffoebonnie-cmk/Velo-Rowan-Scooters#readme",
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.116.0"
+  }
+}
