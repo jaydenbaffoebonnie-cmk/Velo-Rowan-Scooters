@@ -33,6 +33,16 @@ const nameField = document.querySelector('#nameField');
 const authSwitch = document.querySelector('#authSwitch');
 let authMode = 'signup';
 
+function updateProfile(session) {
+  const user = session?.user;
+  const name = user?.user_metadata?.full_name || user?.email?.split('@')[0] || 'Jordan Davis';
+  const email = user?.email || 'jordan@email.com';
+  const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]).join('').toUpperCase() || 'JD';
+  document.querySelector('#profileName').textContent = name;
+  document.querySelector('#profileEmail').textContent = email;
+  document.querySelector('#profileInitials').textContent = initials;
+}
+
 function openAuth(mode = 'signup') {
   authMode = mode;
   const isSignup = mode === 'signup';
@@ -76,6 +86,7 @@ authForm.addEventListener('submit', async (event) => {
       : result.error.message;
     authMessage.classList.add('error');
   } else {
+    if (authMode === 'login') updateProfile(result.data?.session);
     authMessage.textContent = authMode === 'signup' ? 'Account created. Check your email to verify your Velo account.' : 'You are logged in.';
     authMessage.classList.add('success');
     if (authMode === 'login') setTimeout(closeAuth, 800);
@@ -84,7 +95,9 @@ authForm.addEventListener('submit', async (event) => {
 });
 
 if (supabaseClient) {
+  supabaseClient.auth.getSession().then(({ data: { session } }) => updateProfile(session));
   supabaseClient.auth.onAuthStateChange((_event, session) => {
+    updateProfile(session);
     document.querySelector('#loginButton').textContent = session ? 'Log out' : 'Log in';
     document.querySelector('#signupButton').hidden = Boolean(session);
     if (session) document.querySelector('#loginButton').onclick = async () => { await supabaseClient.auth.signOut(); };

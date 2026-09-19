@@ -32,7 +32,7 @@
       </nav>
       <div class="sidebar-spacer"></div>
       <div class="weather-mini"><i data-lucide="sun"></i><div><strong>72°</strong><span>Clear skies</span></div><small>Good riding</small></div>
-      <div class="user-chip"><div class="avatar">JD</div><div><strong>Jordan Davis</strong><span>jordan@email.com</span></div><button aria-label="Account menu"><i data-lucide="more-horizontal"></i></button></div>
+      <div class="user-chip"><div class="avatar" id="profileInitials">JD</div><div><strong id="profileName">Jordan Davis</strong><span id="profileEmail">jordan@email.com</span></div><button aria-label="Account menu"><i data-lucide="more-horizontal"></i></button></div>
     </aside>
 
     <main class="main-content" id="top">
@@ -92,6 +92,6 @@
   </div>
   <div class="modal-backdrop" id="supportModal" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" aria-label="Close"><i data-lucide="x"></i></button><span class="modal-icon"><i data-lucide="life-buoy"></i></span><p class="eyebrow">VELO SUPPORT</p><h2 id="modalTitle">We can help with that.</h2><p id="modalCopy">Tell us what happened and our support team will get you moving again.</p><textarea placeholder="Add a few details (optional)"></textarea><button class="primary-button" id="sendSupport">Send to support <i data-lucide="arrow-up-right"></i></button></div></div>
   <div class="modal-backdrop" id="authModal" aria-hidden="true"><div class="modal auth-modal" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="modal-close" id="authClose" aria-label="Close"><i data-lucide="x"></i></button><span class="modal-icon"><i data-lucide="user-round-plus"></i></span><p class="eyebrow" id="authEyebrow">JOIN VELO</p><h2 id="authTitle">Create your account.</h2><p id="authCopy">Use your email to reserve scooters, start rides, and keep your trip history together.</p><form id="authForm"><label id="nameField">Name<input id="authName" type="text" autocomplete="name" placeholder="Your name" /></label><label>Email<input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required /></label><label>Password<input id="authPassword" type="password" autocomplete="new-password" placeholder="At least 6 characters" minlength="6" required /></label><p class="auth-message" id="authMessage" role="status"></p><button class="primary-button" type="submit" id="authSubmit">Create account <i data-lucide="arrow-up-right"></i></button></form><button class="auth-switch" id="authSwitch">Already have an account? Log in</button></div></div>
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
