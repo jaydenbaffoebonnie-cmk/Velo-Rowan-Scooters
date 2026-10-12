@@ -153,11 +153,14 @@ const modalCopy = document.querySelector('#modalCopy');
 const supportContent = {
   unlock: ['Scooter won’t lock or unlock', 'We can help troubleshoot the lock, Bluetooth, and GPS. Tell us what you see and we will take it from here.'],
   incident: ['Report a safety issue', 'For a crash, injury, fire, damage, or a hazard, share the details below. In an emergency, call 911 first.'],
+  fire: ['What if my scooter catches fire or overheats?', 'Stop riding immediately, move away from the scooter, and keep others at a safe distance. If you notice smoke, fire, unusual odors, or hissing sounds, call 911. Do not attempt to repair or move a dangerous battery. Contact VELO Support as soon as it is safe.'],
   payment: ['Payment or refund request', 'Tell us about the charge you are questioning. Our team will review your ride and follow up by email.']
 };
 document.querySelectorAll('[data-open-support]').forEach((item) => {
   item.addEventListener('click', () => {
-    const [title, copy] = supportContent[item.dataset.openSupport];
+    const supportEntry = supportContent[item.dataset.openSupport];
+    if (!supportEntry) return;
+    const [title, copy] = supportEntry;
     modalTitle.textContent = title;
     modalCopy.textContent = copy;
     modal.classList.add('open');
